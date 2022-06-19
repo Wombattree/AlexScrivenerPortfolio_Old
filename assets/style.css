@@ -1,0 +1,162 @@
+:root
+{
+    --headerFooterColour: rgb(91, 122, 119);
+    --separatorColour: rgb(146, 187, 183);
+    --bodyColour: #fafafa;
+
+    --headerTextColour: #dddddd;
+    --bodyTextColour: #3d3d3d;
+
+    --bodyLinkTextHightlightColour: #6a6a6a;
+    --headerLinkTextHightlightColour: #ffffff;
+}
+
+body
+{
+    color: var(--header);
+    background-color: var(--headerFooterColour);
+    line-height: 1.2;
+
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}
+
+h1
+{
+    font-size: 200%;
+    padding-left: 2%;
+}
+
+.separator
+{
+    background-color: var(--separatorColour);
+    padding: 0.5% 0% 0.5% 0%;
+}
+
+nav
+{
+    width: 30%;
+}
+
+nav ul
+{
+    display: flex;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+nav li
+{
+    padding: 0% 5% 0% 5%;
+}
+
+nav a
+{
+    color: var(--headerTextColour);
+}
+
+nav a:hover
+{
+    color: var(--headerLinkTextHightlightColour);
+}
+
+main
+{
+    background-color: var(--bodyColour);
+    color: var(--textBodyColour);
+}
+
+.information
+{
+    padding: 2%;
+}
+
+.information section
+{
+    padding: 2% 10% 2% 10%;
+    display: grid;
+    grid-template-columns: 5fr .1fr 20fr;
+    grid-template-rows: 1fr;
+    grid-gap: 1%;
+}
+
+.sectionHeader
+{
+    font-size: 200%;
+    justify-self: right;
+    padding-right: 5%;
+}
+
+.sectionSeparator
+{
+    background-color: var(--separatorColour);
+}
+
+.workInformation
+{
+    display: grid;
+    grid-template-columns: repeat(2, 35%);
+    grid-template-rows: repeat(4, 25%);
+    grid-gap: 0.5%;
+    
+    grid-template-areas: 
+        "mainExample mainExample"
+        "mainExample mainExample"
+        "secondaryExample secondaryExample"
+        "secondaryExample secondaryExample";
+}
+
+.workExample
+{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.mainWorkExample
+{
+    grid-area: mainExample;
+}
+
+.information ul
+{
+    display: flex;
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.information li
+{
+    padding: 0% 2% 0% 2%;
+}
+
+.information a
+{
+    color: var(--bodyTextColour);
+}
+
+.information a:hover
+{
+    color: var(--bodyLinkTextHightlightColour);
+}
+
+footer
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5%;
+}
+
+footer p
+{
+    font-size: 125%;
+    padding-left: 2%;
+}
