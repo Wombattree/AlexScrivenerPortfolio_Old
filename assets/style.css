@@ -1,27 +1,34 @@
 :root
 {
-    --headerFooterColour: rgb(91, 122, 119);
-    --separatorColour: rgb(146, 187, 183);
-    --bodyColour: #fafafa;
+    --headerFooterColour: rgb(15, 59, 74);
+    --separatorColour: rgb(26, 97, 121);
+    --bodyColour: rgb(32, 32, 35);
 
     --headerTextColour: #dddddd;
-    --bodyTextColour: #3d3d3d;
+    --bodyTextColour: #dddddd;
 
-    --bodyLinkTextHightlightColour: #6a6a6a;
+    --bodyLinkTextHightlightColour: #ffffff;
     --headerLinkTextHightlightColour: #ffffff;
+
+    --fontSizeTitle: 200%;
+    --fontSizeLarge: 150%;
+    --fontSizeMedium: 125%;
+    --fontSizeStandard: 100%;
 }
 
 body
 {
-    color: var(--header);
+    color: var(--bodyTextColour);
     background-color: var(--headerFooterColour);
     line-height: 1.2;
+    font-size: var(--fontSizeStandard);
 
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 header
 {
+    color: var(--headerTextColour);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,7 +37,7 @@ header
 
 h1
 {
-    font-size: 200%;
+    font-size: var(--fontSizeTitle);
     padding-left: 2%;
 }
 
@@ -42,19 +49,21 @@ h1
 
 nav
 {
-    width: 30%;
+    width: 50%;
 }
 
 nav ul
 {
     display: flex;
-    font-size: 140%;
+    font-size: var(--fontSizeLarge);
     font-weight: bold;
+    justify-content: space-evenly;
+    align-self: center;
 }
 
 nav li
 {
-    padding: 0% 5% 0% 5%;
+    padding: 0% 15px 0% 15px;
 }
 
 nav a
@@ -80,7 +89,7 @@ main
 
 .information section
 {
-    padding: 2% 10% 2% 10%;
+    padding: 2% 20% 2% 20%;
     display: grid;
     grid-template-columns: 5fr .1fr 20fr;
     grid-template-rows: 1fr;
@@ -89,7 +98,7 @@ main
 
 .sectionHeader
 {
-    font-size: 200%;
+    font-size: var(--fontSizeTitle);
     justify-self: right;
     padding-right: 5%;
 }
@@ -99,28 +108,69 @@ main
     background-color: var(--separatorColour);
 }
 
+.workDisclaimer
+{
+    padding-bottom: 10px;
+}
+
 .workInformation
 {
     display: grid;
-    grid-template-columns: repeat(2, 35%);
-    grid-template-rows: repeat(4, 25%);
+    grid-template-columns: repeat(2, 40%);
+    grid-template-rows: repeat(4, 20%);
     grid-gap: 0.5%;
     
     grid-template-areas: 
         "mainExample mainExample"
-        "mainExample mainExample"
-        "secondaryExample secondaryExample"
-        "secondaryExample secondaryExample";
+        "mainExample mainExample";
 }
 
-.workExample
+.workExampleLabel
 {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
+    position: relative;
+    bottom: 75px;
 }
 
-.mainWorkExample
+.workExampleImage
+{
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: fill;
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--separatorColour);
+}
+
+.workExampleLabelTitle, .workExampleDescription
+{
+    background-color: var(--separatorColour);
+    color: var(--bodyTextColour);
+    max-width: 75%;
+    order: 2;
+}
+
+.workExampleLabelTitle
+{
+    font-size: var(--fontSizeMedium);
+    font-weight: bold;
+    padding: 5px 10px 5px 10px;
+}
+
+.workExampleDescription
+{
+    padding: 0px 10px 5px 10px;
+}
+
+#mainWorkExample .workExampleLabelTitle, #mainWorkExample .workExampleDescription
+{
+    grid-area: mainExample;
+    max-width: 40%;
+}
+
+#mainWorkExample
 {
     grid-area: mainExample;
 }
@@ -128,7 +178,7 @@ main
 .information ul
 {
     display: flex;
-    font-size: 140%;
+    font-size: var(--fontSizeLarge);
     font-weight: bold;
 }
 
@@ -157,6 +207,41 @@ footer
 
 footer p
 {
-    font-size: 125%;
+    font-size: var(--fontSizeMedium);
     padding-left: 2%;
+}
+
+@media screen and (max-width: 768px) 
+{
+    :root
+    {
+        --fontSizeTitle: 175%;
+        --fontSizeLarge: 125%;
+        --fontSizeMedium: 100%;
+        --fontSizeStandard: 90%;
+    }
+
+    header
+    {
+        flex-direction: column;
+    }
+
+    .information section
+    {
+        padding: 2% 5% 2% 5%;
+    }
+
+    .workInformation
+    {   
+        display: flex;
+        flex-direction: column;
+    }
+
+    .workExampleLabelTitle, 
+    .workExampleDescription, 
+    #mainWorkExample .workExampleLabelTitle, 
+    #mainWorkExample .workExampleDescription
+    {
+        max-width: 50%;
+    }
 }
